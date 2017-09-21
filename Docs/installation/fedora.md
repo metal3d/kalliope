@@ -100,7 +100,7 @@ find ~/.local -name "*pico*" -exec rm -rf "{}" \;
 sudo rm -rf /usr/bin/pico2wave
 ```
 
-# Delete kallope
+# Delete Kalliope
 
 Because we installed it on HOME, this is easy.
 
