@@ -76,7 +76,7 @@ source ~/Projects/Kalloiope/bin/activate
 pip install kalliope
 ```
 
-Then, follow the [main installation documentation](../installation.md).
+Then follow [Quickstart](quickstart.md) page to check if everything is ok.
 
 # Tips
 
