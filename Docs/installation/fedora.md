@@ -26,10 +26,6 @@ sudo bash -c "sed 's,\s/usr/, ~/.local/,g' picotts-install.sh | bash"
 
 Because we installed pico2wave in "local" dir, we need to force pico2wave to check librairies in another directory.
 
-```
-sudo mv ~/.local/bin/pico2wave ~/.local/bin/_pico2wwave
-```
-
 Then, create a file `~/.local/bin/_pico2wave`
 
 ```bash
@@ -43,21 +39,18 @@ Make it executable: `chmod +x ~/.local/bin/_pico2wave`
 Because Kalliope has `/usr/bin/pico2wave` hardcoded in the sourcecode, you need to link this script in `/usr/bin`
 
 ```
-ln -s ~/.local/bin/_pico2wave /usr/bin/pico2wave
+sudo ln -s ~/.local/bin/_pico2wave /usr/bin/pico2wave
 ```
 
 Now try this:
 
 ```bash
 cd /tmp
-# fake pipeline
+# Fake pipeline
+# Afterward, you can remove out.wav file that is a simple symlink
 ln -s /dev/stdout out.wav
-
 # try
 pico2wave -l "en-US" -w out.wav "Hello my friend, nice to meet you" | play -
-
-# afterward, you can remove out.wav file that is a simple symlink
-
 ```
 
 You should hear your computer speaking to you.
@@ -67,7 +60,7 @@ You should hear your computer speaking to you.
 libcblas is not installed as in Ubuntu, so you can link gsl library like that:
 
 ```
-sudo ln -s /usr/lib64/libgslcblas.so ./libcblas.so
+sudo ln -s /usr/lib64/libgslcblas.so /usr/lib64/libcblas.so
 ```
 
 # Install Kalliope in a virtualenv
@@ -95,3 +88,29 @@ And `chmod +x ~/.local/bin/kalliope`.
 Then, follow the [main installation documentation](../installation.md).
 
 
+# Delete picotts
+
+If you want to remove our picotts installation:
+
+```bash
+find ~/.local -name "*tts*" -exec rm -rf "{}" \;
+find ~/.local -name "*pico*" -exec rm -rf "{}" \;
+sudo rm -rf /usr/bin/pico2wave
+```
+
+# Delete kallope
+
+Because we installed it on HOME, this is easy.
+
+You'll need this:
+
+```bash
+rm -f ~/.local/bin/kalliope
+rm ~/Projects/Kalliope
+```
+
+And remove libcblas link:
+
+```bash
+sudo rm -f /usr/lib64/libcblas.so
+```
