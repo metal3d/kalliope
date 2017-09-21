@@ -9,7 +9,7 @@ sudo dnf install gsl-devel gsl python3-devel dialog \
     portaudio-devel libicu-devel mplayer
 ```
 
-# picotts
+## Install picotts
 
 Then you will need to install pico2wave (picotts).
 Fedora dosen't provides any package, so we will install it in our HOME to not impact the system. That will be easier to remove it later.
@@ -56,7 +56,7 @@ pico2wave -l "en-US" -w out.wav "Hello my friend, nice to meet you" | play -
 
 You should hear your computer speaking to you.
 
-# Fix libcblas problem
+## Fix libcblas problem
 
 libcblas is not installed as in Ubuntu, so you can link gsl library like that:
 
