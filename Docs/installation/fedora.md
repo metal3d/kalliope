@@ -31,7 +31,7 @@ Then, create a file `~/.local/bin/_pico2wave`
 ```bash
 #!/bin/bash
 export LD_LIBRARY_PATH=~/.local/lib64:~/.local/lib
-~/.local/bin/_pico2wwave $@
+~/.local/bin/_pico2wave $@
 ```
 
 Make it executable: `chmod +x ~/.local/bin/_pico2wave`
@@ -75,7 +75,11 @@ source ~/Projects/Kalloiope/bin/activate
 pip install kalliope
 ```
 
-**Important**, you will need to type `source ~/Projects/Kalloiope/bin/activate` command each time you will want to use Kalliope. If you want a local script to call Kallope without that, please create a script in ~/.local/bin/kalliope:
+Then, follow the [main installation documentation](../installation.md).
+
+# Tips
+
+You will need to type `source ~/Projects/Kalloiope/bin/activate` command each time you will want to use Kalliope. If you want a local script to call Kallope without that, please create a script in ~/.local/bin/kalliope:
 
 ```
 #!/bin/bash
@@ -85,7 +89,6 @@ source ~/Projects/Kalloiope/bin/activate
 
 And `chmod +x ~/.local/bin/kalliope`.
 
-Then, follow the [main installation documentation](../installation.md).
 
 
 # Delete picotts
