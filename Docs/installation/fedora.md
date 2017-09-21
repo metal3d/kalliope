@@ -17,11 +17,12 @@ Fedora dosen't provides any package, so we will install it in our HOME to not im
 Note that Fedora should provide `~/.local/bin` in your PATH. 
 
 ```bash
-sudo mkdir -p ~/.local/{bin,lib,share}
-
 cd /tmp
+mkdir -p ~/.local/{bin,lib,share}
 wget https://raw.githubusercontent.com/stevenmirabito/asterisk-picotts/master/picotts-install.sh
-sudo bash -c "sed 's,\s/usr/, ~/.local/,g' picotts-install.sh | bash"
+# call install script replacing
+# default path
+sed 's,\s/usr/, ~/.local/,g' picotts-install.sh | bash
 ```
 
 Because we installed pico2wave in "local" dir, we need to force pico2wave to check librairies in another directory.
@@ -88,8 +89,6 @@ source ~/Projects/Kalloiope/bin/activate
 ```
 
 And `chmod +x ~/.local/bin/kalliope`.
-
-
 
 # Delete picotts
 
